@@ -37,13 +37,13 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Frameworks\Scripts\Singleton\TableManager.cs" />
+     <Compile Include="Assets\Frameworks\Scripts\Data\Test.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Object\BasePlayerCharacter.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Singleton\Base\BaseSingleton.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Singleton\PoolManager.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Object\BaseCharacter.cs" />
-     <Compile Include="Assets\Frameworks\Scripts\Data\Test.cs" />
-     <Compile Include="Assets\Frameworks\Scripts\Singleton\JsonManager.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.41f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -617,6 +617,12 @@
     <Reference Include="Unity.VSCode.Editor">
         <HintPath>C:\Users\User\Desktop\UnityProject\3D_RPG\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.CacheServer">
+        <HintPath>C:\Users\User\Desktop\UnityProject\3D_RPG\Library\ScriptAssemblies\UnityEditor.CacheServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Addressables">
+        <HintPath>C:\Users\User\Desktop\UnityProject\3D_RPG\Library\ScriptAssemblies\Unity.Addressables.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
         <HintPath>C:\Users\User\Desktop\UnityProject\3D_RPG\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -631,6 +637,18 @@
     </Reference>
     <Reference Include="Unity.TextMeshPro">
         <HintPath>C:\Users\User\Desktop\UnityProject\3D_RPG\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ScriptableBuildPipeline">
+        <HintPath>C:\Users\User\Desktop\UnityProject\3D_RPG\Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Addressables.Editor">
+        <HintPath>C:\Users\User\Desktop\UnityProject\3D_RPG\Library\ScriptAssemblies\Unity.Addressables.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ResourceManager">
+        <HintPath>C:\Users\User\Desktop\UnityProject\3D_RPG\Library\ScriptAssemblies\Unity.ResourceManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ScriptableBuildPipeline.Editor">
+        <HintPath>C:\Users\User\Desktop\UnityProject\3D_RPG\Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
         <HintPath>C:\Users\User\Desktop\UnityProject\3D_RPG\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>

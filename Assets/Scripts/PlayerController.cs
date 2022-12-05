@@ -40,7 +40,7 @@ public class PlayerController : BasePlayerCharacter
     public override void Initialization()
     {
         base.Initialization();
-        Debug.Log("풀 생성!");
+        Debug.Log("풀 생성!");        
     }
 
     public override void DisposeObject()
@@ -88,9 +88,9 @@ public class PlayerController : BasePlayerCharacter
     // W 키 취소.
     public override void W_KeyUp()
     {
-        base.W_KeyUp();
+        base.W_KeyUp();        
 
-        m_Move = kMOVE.None;
+        m_Move = kMOVE.None;        
     }
 
     // S 키 입력 시.

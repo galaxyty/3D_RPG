@@ -7,8 +7,7 @@ public class GameManager : BaseSingleton<GameManager>
 {
     private void Start() 
     {
-        Test TEST = JsonManager.Instantce.Parse<Test>("TEST");
-
-        Debug.Log(TEST.ID);
+        // 테이블 매니저 초기화.
+        TableManager.Instantce.Init();        
     }
 }
