@@ -90,7 +90,8 @@ public class PlayerController : BasePlayerCharacter
     {
         base.W_KeyUp();        
 
-        m_Move = kMOVE.None;        
+        m_Move = kMOVE.None;
+        Debug.Log(TableManager.Instance.GetTestData().ID);
     }
 
     // S 키 입력 시.

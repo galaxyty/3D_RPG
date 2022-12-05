@@ -7,7 +7,7 @@ public class GameManager : BaseSingleton<GameManager>
 {
     private void Start() 
     {
-        // 테이블 매니저 초기화.
-        TableManager.Instantce.Init();        
+        // 번들 다운로드.        
+        BundleManager.Instance.DownloadBundleAsync();
     }
 }
