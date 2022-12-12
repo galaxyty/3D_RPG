@@ -38,13 +38,14 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Singleton\TableManager.cs" />
-     <Compile Include="Assets\Frameworks\Scripts\Data\Test.cs" />
+     <Compile Include="Assets\Frameworks\Scripts\Data\ItemData.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Frameworks\Scripts\Constants.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Object\BasePlayerCharacter.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Singleton\Base\BaseSingleton.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Singleton\PoolManager.cs" />
-     <Compile Include="Assets\Frameworks\Scripts\Object\BaseCharacter.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Singleton\BundleManager.cs" />
+     <Compile Include="Assets\Frameworks\Scripts\Object\BaseCharacter.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.41f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
