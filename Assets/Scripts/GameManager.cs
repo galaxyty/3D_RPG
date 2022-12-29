@@ -9,5 +9,8 @@ public class GameManager : BaseSingleton<GameManager>
     {
         // 번들 다운로드.        
         BundleManager.Instance.DownloadBundleAsync();
+        
+        PoolManager.Instance.Create<PlayerController>(Constants.kBUNDLE.PLAYER.ToString());
+        PoolManager.Instance.Pop<PlayerController>();
     }
 }
