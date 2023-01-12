@@ -24,8 +24,11 @@ public class PlayerController : BasePlayerCharacter
     [SerializeField]
     private Animator m_Animator;
 
-    // 인벤토리.
+    // 인벤토리 아이템들.
     public List<ItemData> m_Slot = new List<ItemData>();
+
+    // UI 인벤토리.
+    private BaseInventory m_Inventory = null;
 
     private void Update() 
     {
@@ -35,7 +38,13 @@ public class PlayerController : BasePlayerCharacter
         // 인벤토리 오픈.
         if (Input.GetKeyDown(KeyCode.I))
         {
-            PoolManager.Instance.Pop<BaseInventory>(Constants.kTAG.MainCanvas.ToString());
+            m_Inventory = PoolManager.Instance.Pop<UIBaseInventory>(Constants.kTAG.MainCanvas.ToString());
+        }
+
+        // 인벤토리 닫기.
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PoolManager.Instance.Push(m_Inventory);
         }
     }
 
@@ -50,7 +59,7 @@ public class PlayerController : BasePlayerCharacter
     {
         base.Initialization();
         Debug.Log("풀 생성!");
-        PoolManager.Instance.Create<BaseInventory>(Constants.kBUNDLE.Inventory.ToString());
+        PoolManager.Instance.Create<UIBaseInventory>(Constants.kBUNDLE.Inventory.ToString());
     }
 
     public override void DisposeObject()
