@@ -38,13 +38,20 @@ public class PlayerController : BasePlayerCharacter
         // 인벤토리 오픈.
         if (Input.GetKeyDown(KeyCode.I))
         {
-            m_Inventory = PoolManager.Instance.Pop<UIBaseInventory>(Constants.kTAG.MainCanvas.ToString());
+            if (m_Inventory == null)
+            {
+                m_Inventory = PoolManager.Instance.Pop<UIBaseInventory>(Constants.kTAG.MainCanvas.ToString());
+            }
         }
 
         // 인벤토리 닫기.
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            PoolManager.Instance.Push(m_Inventory);
+            if (m_Inventory != null)
+            {
+                PoolManager.Instance.Push(m_Inventory);
+                m_Inventory = null;
+            }
         }
     }
 
