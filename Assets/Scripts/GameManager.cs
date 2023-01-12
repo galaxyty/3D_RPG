@@ -8,6 +8,6 @@ public class GameManager : BaseSingleton<GameManager>
     private void Start() 
     {   
         PoolManager.Instance.Create<PlayerController>(Constants.kBUNDLE.Player.ToString());
-        PoolManager.Instance.Pop<PlayerController>();
+        var obj = PoolManager.Instance.Pop<PlayerController>();        
     }
 }

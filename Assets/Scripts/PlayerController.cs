@@ -24,10 +24,19 @@ public class PlayerController : BasePlayerCharacter
     [SerializeField]
     private Animator m_Animator;
 
+    // 인벤토리.
+    public List<ItemData> m_Slot = new List<ItemData>();
+
     private void Update() 
     {
         ThreeView();
         Move();
+
+        // 인벤토리 오픈.
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            PoolManager.Instance.Pop<BaseInventory>(Constants.kTAG.MainCanvas.ToString());
+        }
     }
 
     public override void Move()
@@ -40,7 +49,8 @@ public class PlayerController : BasePlayerCharacter
     public override void Initialization()
     {
         base.Initialization();
-        Debug.Log("풀 생성!");        
+        Debug.Log("풀 생성!");
+        PoolManager.Instance.Create<BaseInventory>(Constants.kBUNDLE.Inventory.ToString());
     }
 
     public override void DisposeObject()
@@ -90,8 +100,10 @@ public class PlayerController : BasePlayerCharacter
     {
         base.W_KeyUp();        
 
-        m_Move = kMOVE.None;        
-        Debug.Log(TableManager.Instance.GetItemData().ITEM_NAME);
+        m_Move = kMOVE.None;
+
+        m_Slot.Add(TableManager.Instance.GetItemData());
+        Debug.Log(m_Slot[0].ITEM_NAME);
     }
 
     // S 키 입력 시.
