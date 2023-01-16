@@ -40,7 +40,12 @@ public class PlayerController : BasePlayerCharacter
         {
             if (m_Inventory == null)
             {
-                m_Inventory = PoolManager.Instance.Pop<UIBaseInventory>(Constants.kTAG.MainCanvas.ToString());
+                m_Slot.Add(TableManager.Instance.GetItemData().ITEM[1]);
+                
+                var obj = PoolManager.Instance.Pop<UIBaseInventory>(Constants.kTAG.MainCanvas.ToString());
+                obj.UpdateUI(m_Slot);
+
+                m_Inventory = obj;
             }
         }
 
@@ -117,9 +122,6 @@ public class PlayerController : BasePlayerCharacter
         base.W_KeyUp();        
 
         m_Move = kMOVE.None;
-
-        m_Slot.Add(TableManager.Instance.GetItemData());
-        Debug.Log(m_Slot[0].ITEM_NAME);
     }
 
     // S 키 입력 시.
