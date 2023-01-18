@@ -4,20 +4,7 @@ using UnityEngine;
 using BaseRPG_V1;
 
 public class PlayerController : BasePlayerCharacter
-{   
-    private enum kMOVE
-    {
-        None = 0,
-        Forward,
-        Back,
-        Left,
-        Right,
-        ForwardLeft,
-        ForwardRight,
-        BackLeft,
-        BackRight
-    }
-
+{
     private kMOVE m_Move = kMOVE.None;
 
     // 애니메이터.
@@ -64,8 +51,15 @@ public class PlayerController : BasePlayerCharacter
     {
         base.Move();
 
+        // 공격.
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            m_Move = kMOVE.Attack;
+        }
+
         m_Animator.SetInteger("Movement", (int)m_Move);
-    }    
+        m_Move = kMOVE.None;
+    }
 
     public override void Initialization()
     {
@@ -119,9 +113,7 @@ public class PlayerController : BasePlayerCharacter
     // W 키 취소.
     public override void W_KeyUp()
     {
-        base.W_KeyUp();        
-
-        m_Move = kMOVE.None;
+        base.W_KeyUp();
     }
 
     // S 키 입력 시.
@@ -136,8 +128,6 @@ public class PlayerController : BasePlayerCharacter
     public override void S_KeyUp()
     {
         base.S_KeyUp();
-
-        m_Move = kMOVE.None;
     }
 
     // A 키 입력 시.
@@ -165,8 +155,6 @@ public class PlayerController : BasePlayerCharacter
     public override void A_KeyUp()
     {
         base.A_KeyUp();
-
-        m_Move = kMOVE.None;
     }
 
     // D 키 입력 시.
@@ -194,7 +182,5 @@ public class PlayerController : BasePlayerCharacter
     public override void D_KeyUp()
     {
         base.D_KeyUp();
-        
-        m_Move = kMOVE.None;
     }
 }
