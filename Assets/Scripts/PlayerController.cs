@@ -12,10 +12,18 @@ public class PlayerController : BasePlayerCharacter
     private Animator m_Animator;
 
     // 인벤토리 아이템들.
+    [HideInInspector]
     public List<ItemData> m_Slot = new List<ItemData>();
 
     // UI 인벤토리.
     private BaseInventory m_Inventory = null;
+
+    // 공격용 메쉬콜라이더.
+    [SerializeField]
+    private MeshCollider m_Mesh;    
+
+    // 공격중인가?.
+    private bool m_Attack = false;
 
     private void Update() 
     {
@@ -50,13 +58,12 @@ public class PlayerController : BasePlayerCharacter
     // 좌클릭.
     public override void OnLeftClick()
     {
-        base.OnLeftClick();
+        if (m_Attack == true)
+            return;
 
-        // 공격.
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            m_Move = kMOVE.Attack;
-        }
+        m_Move = kMOVE.Attack;
+        Debug.Log("공격!!!");
+        StartCoroutine(EAttack());
     }
 
     public override void Move()
@@ -71,22 +78,21 @@ public class PlayerController : BasePlayerCharacter
 
     public override void Initialization()
     {
-        base.Initialization();
-        Debug.Log("풀 생성!");
+        base.Initialization();        
+
+        m_Mesh.enabled = false;
         PoolManager.Instance.Create<UIBaseInventory>(Constants.kBUNDLE.Inventory.ToString());
     }
 
     public override void DisposeObject()
     {
-        base.DisposeObject();
-        Debug.Log("풀 돌려보냄.");
+        base.DisposeObject();        
     }
 
     // 사망 이벤트 정의.
     public override void Die()
     {
         base.Die();
-        Debug.Log("사망");
     }
 
     // 피격.
@@ -190,5 +196,20 @@ public class PlayerController : BasePlayerCharacter
     public override void D_KeyUp()
     {
         base.D_KeyUp();
+    }
+
+    // 공격 코루틴.
+    private IEnumerator EAttack()
+    {
+        m_Attack = true;
+
+        yield return new WaitForSeconds(0.1f);
+        m_Mesh.enabled = true;
+
+        yield return new WaitForSeconds(0.5f);
+        m_Mesh.enabled = false;
+
+        yield return new WaitForSeconds(0.2f);
+        m_Attack = false;
     }
 }
