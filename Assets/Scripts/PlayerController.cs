@@ -62,7 +62,6 @@ public class PlayerController : BasePlayerCharacter
             return;
 
         m_Move = kMOVE.Attack;
-        Debug.Log("공격!!!");
         StartCoroutine(EAttack());
     }
 
