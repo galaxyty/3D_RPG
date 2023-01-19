@@ -20,7 +20,7 @@ public class PlayerController : BasePlayerCharacter
     private void Update() 
     {
         ThreeView();
-        Move();
+        Move();        
 
         // 인벤토리 오픈.
         if (Input.GetKeyDown(KeyCode.I))
@@ -47,15 +47,23 @@ public class PlayerController : BasePlayerCharacter
         }
     }
 
-    public override void Move()
+    // 좌클릭.
+    public override void OnLeftClick()
     {
-        base.Move();
+        base.OnLeftClick();
 
         // 공격.
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             m_Move = kMOVE.Attack;
         }
+    }
+
+    public override void Move()
+    {
+        base.Move();
+
+        LeftClick();
 
         m_Animator.SetInteger("Movement", (int)m_Move);
         m_Move = kMOVE.None;
