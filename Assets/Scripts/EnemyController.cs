@@ -5,9 +5,9 @@ using BaseRPG_V1;
 
 public class EnemyController : BaseCharacter
 {
-    private void OnCollisionEnter(Collision other) 
+    private void OnTriggerEnter(Collider other) 
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == Constants.kTAG.Weapon.ToString())
         {
             var obj = PoolManager.Instance.GetObject<PlayerController>();
 
