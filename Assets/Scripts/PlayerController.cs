@@ -35,7 +35,7 @@ public class PlayerController : BasePlayerCharacter
         {
             if (m_Inventory == null)
             {
-                m_Slot.Add(TableManager.Instance.GetItemData().ITEM[1]);
+                m_Slot.Add(TableManager.Instance.GetItemData()[0]);
                 
                 var obj = PoolManager.Instance.Pop<UIBaseInventory>(Constants.kTAG.MainCanvas.ToString());
                 obj.UpdateUI(m_Slot);
