@@ -11,13 +11,6 @@ public class PlayerController : BasePlayerCharacter
     [SerializeField]
     private Animator m_Animator;
 
-    // 인벤토리 아이템들.
-    [HideInInspector]
-    public List<ItemData> m_Slot = new List<ItemData>();
-
-    // UI 인벤토리.
-    private BaseInventory m_Inventory = null;
-
     // 공격용 메쉬콜라이더.
     [SerializeField]
     private MeshCollider m_Mesh;    
@@ -33,24 +26,22 @@ public class PlayerController : BasePlayerCharacter
         // 인벤토리 오픈.
         if (Input.GetKeyDown(KeyCode.I))
         {
-            if (m_Inventory == null)
+            if (PoolManager.Instance.GetObject<UIInventory>() == null)
             {
-                m_Slot.Add(TableManager.Instance.GetItemData()[0]);
+                // 아이템 랜덤 생성.
+                m_Inventory.Add(TableManager.Instance.GetItemData()[Random.Range(0, TableManager.Instance.GetItemData().Count)]);
                 
-                var obj = PoolManager.Instance.Pop<UIBaseInventory>(Constants.kTAG.MainCanvas.ToString());
-                obj.UpdateUI(m_Slot);
-
-                m_Inventory = obj;
+                var obj = PoolManager.Instance.Pop<UIInventory>(Constants.kTAG.MainCanvas.ToString());
+                obj.UpdateUI(m_Inventory);
             }
         }
 
         // 인벤토리 닫기.
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (m_Inventory != null)
+            if (PoolManager.Instance.GetObject<UIInventory>() != null)
             {
-                PoolManager.Instance.Push(m_Inventory);
-                m_Inventory = null;
+                PoolManager.Instance.Push(PoolManager.Instance.GetObject<UIInventory>());
             }
         }
     }
@@ -80,7 +71,7 @@ public class PlayerController : BasePlayerCharacter
         base.Initialization();        
 
         m_Mesh.enabled = false;
-        PoolManager.Instance.Create<UIBaseInventory>(Constants.kBUNDLE.Inventory.ToString());
+        PoolManager.Instance.Create<UIInventory>(Constants.kBUNDLE.Inventory.ToString());
     }
 
     public override void DisposeObject()

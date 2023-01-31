@@ -13,8 +13,6 @@ public class EnemyController : BaseCharacter
 
             if (obj == null)
                 return;
-
-            Debug.Log("asdasd : " + obj.Hp);
         }
     }
 }
