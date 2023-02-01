@@ -26,12 +26,12 @@ public class PlayerController : BasePlayerCharacter
         // 인벤토리 오픈.
         if (Input.GetKeyDown(KeyCode.I))
         {
-            if (PoolManager.Instance.GetObject<UIInventory>() == null)
+            if (PoolManager.Instance.GetObject<UICustomInventory>() == null)
             {
                 // 아이템 랜덤 생성.
                 m_Inventory.Add(TableManager.Instance.GetItemData()[Random.Range(0, TableManager.Instance.GetItemData().Count)]);
                 
-                var obj = PoolManager.Instance.Pop<UIInventory>(Constants.kTAG.MainCanvas.ToString());
+                var obj = PoolManager.Instance.Pop<UICustomInventory>(Constants.kTAG.MainCanvas.ToString());
                 obj.UpdateUI(m_Inventory);
             }
         }
@@ -39,9 +39,9 @@ public class PlayerController : BasePlayerCharacter
         // 인벤토리 닫기.
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (PoolManager.Instance.GetObject<UIInventory>() != null)
+            if (PoolManager.Instance.GetObject<UICustomInventory>() != null)
             {
-                PoolManager.Instance.Push(PoolManager.Instance.GetObject<UIInventory>());
+                PoolManager.Instance.Push(PoolManager.Instance.GetObject<UICustomInventory>());
             }
         }
     }
@@ -71,7 +71,7 @@ public class PlayerController : BasePlayerCharacter
         base.Initialization();        
 
         m_Mesh.enabled = false;
-        PoolManager.Instance.Create<UIInventory>(Constants.kBUNDLE.Inventory.ToString());
+        PoolManager.Instance.Create<UICustomInventory>(Constants.kBUNDLE.UICustomInventory.ToString());
     }
 
     public override void DisposeObject()
