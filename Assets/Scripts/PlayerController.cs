@@ -44,6 +44,13 @@ public class PlayerController : BasePlayerCharacter
                 PoolManager.Instance.Push(PoolManager.Instance.GetObject<UICustomInventory>());
             }
         }
+
+        // 장비창.
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            var obj = PoolManager.Instance.Pop<UIEquitment>(Constants.kTAG.MainCanvas.ToString());
+            obj.UpdateUI();
+        }
     }
 
     // 좌클릭.
@@ -72,6 +79,7 @@ public class PlayerController : BasePlayerCharacter
 
         m_Mesh.enabled = false;
         PoolManager.Instance.Create<UICustomInventory>(Constants.kBUNDLE.UICustomInventory.ToString());
+        PoolManager.Instance.Create<UIEquitment>(Constants.kBUNDLE.Equitment.ToString());
     }
 
     public override void DisposeObject()

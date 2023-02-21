@@ -35,6 +35,7 @@ public class UICustomInventory : BaseInventory
             var obj = PoolManager.Instance.Pop<UICustomInventorySlot>(m_Grid.transform);
             m_ListOfSlot.Add(obj);
 
+            // 아이템 있으면 표시, 없으면 기본 표시.
             if (list.Count <= i)
                 continue;
 

@@ -55,9 +55,18 @@ public class UICustomInventorySlot : UIInventorySlot
                     return;
 
                 // 방어구 장착.
-                player.UpdateArmor(m_Data);
+                player.UpdateArmor(m_Data);                
 
                 break;
+        }
+
+        // 장비창 열려있는지?.
+        var equit = PoolManager.Instance.GetObject<UIEquitment>();
+
+        // 장비창 열려있으면 실시간 변경.
+        if (equit != null)
+        {
+            equit.UpdateUI();
         }
     }
 }
