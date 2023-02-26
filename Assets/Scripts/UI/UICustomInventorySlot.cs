@@ -61,7 +61,7 @@ public class UICustomInventorySlot : UIInventorySlot
         }
 
         // 장비창 열려있는지?.
-        var equit = PoolManager.Instance.GetObject<UIEquitment>();
+        var equit = PoolManager.Instance.GetObject<UICustomEquitment>();
 
         // 장비창 열려있으면 실시간 변경.
         if (equit != null)

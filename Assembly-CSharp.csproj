@@ -61,6 +61,8 @@
      <Compile Include="Assets\Frameworks\Scripts\Data\PorsionListData.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Data\PorsionData.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Object\BaseCharacter.cs" />
+     <Compile Include="Assets\Scripts\UI\UICustomEquitment.cs" />
+     <Compile Include="Assets\Scripts\UI\UICustomEquitmentSlot.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.41f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
