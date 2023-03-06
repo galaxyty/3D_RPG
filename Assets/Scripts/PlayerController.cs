@@ -42,14 +42,24 @@ public class PlayerController : BasePlayerCharacter
             if (PoolManager.Instance.GetObject<UICustomInventory>() != null)
             {
                 PoolManager.Instance.Push(PoolManager.Instance.GetObject<UICustomInventory>());
+                return;
+            }
+
+            if (PoolManager.Instance.GetObject<UICustomEquitment>() != null)
+            {
+                PoolManager.Instance.Push(PoolManager.Instance.GetObject<UICustomEquitment>());
+                return;
             }
         }
 
         // 장비창.
         if (Input.GetKeyDown(KeyCode.E))
         {
-            var obj = PoolManager.Instance.Pop<UICustomEquitment>(Constants.kTAG.MainCanvas.ToString());
-            obj.UpdateUI();
+            if (PoolManager.Instance.GetObject<UICustomEquitment>() == null)
+            {
+                var obj = PoolManager.Instance.Pop<UICustomEquitment>(Constants.kTAG.MainCanvas.ToString());
+                obj.UpdateUI();
+            }
         }
     }
 
