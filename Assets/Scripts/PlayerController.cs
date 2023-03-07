@@ -88,8 +88,10 @@ public class PlayerController : BasePlayerCharacter
         base.Initialization();        
 
         m_Mesh.enabled = false;
+
+        // 인벤토리 및 장비창 풀 셋팅.
         PoolManager.Instance.Create<UICustomInventory>(Constants.kBUNDLE.UICustomInventory.ToString());
-        PoolManager.Instance.Create<UICustomEquitment>(Constants.kBUNDLE.UICustomEquitment.ToString());
+        PoolManager.Instance.Create<UICustomEquitment>(Constants.kBUNDLE.UICustomEquitment.ToString());        
     }
 
     public override void DisposeObject()
