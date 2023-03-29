@@ -91,7 +91,10 @@ public class PlayerController : BasePlayerCharacter
 
         // 인벤토리 및 장비창 풀 셋팅.
         PoolManager.Instance.Create<UICustomInventory>(Constants.kBUNDLE.UICustomInventory.ToString());
-        PoolManager.Instance.Create<UICustomEquitment>(Constants.kBUNDLE.UICustomEquitment.ToString());        
+        PoolManager.Instance.Create<UICustomEquitment>(Constants.kBUNDLE.UICustomEquitment.ToString());
+
+        m_Hp = 20;
+        m_MaxHp = 40;
     }
 
     public override void DisposeObject()
@@ -120,11 +123,30 @@ public class PlayerController : BasePlayerCharacter
                 Hit(20);
                 break;
             
+            case "Enemy":
+                Hit(5);
+                break;
+            
             default:
                 break;
         }
     }
 
+    // 피격 시 (공격 받을 시).
+    public override void Hit(int damage)
+    {
+        base.Hit(damage);
+
+        // 체력 UI 가져온다.
+        var ui = PoolManager.Instance.GetObject<UICharacter>();
+
+        if (ui == null)
+        {
+            return;
+        }
+
+        ui.UpdateHpUI();
+    }
 
     // W 키 입력 시.
     public override void W_Key()
