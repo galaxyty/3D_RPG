@@ -11,6 +11,9 @@ public class GameManager : BaseSingleton<GameManager>
         PoolManager.Instance.Create<PlayerController>(Constants.kBUNDLE.Player.ToString());
         PoolManager.Instance.Pop<PlayerController>();
 
+        PoolManager.Instance.Create<EnemyController>(Constants.kMONSTER.Enemy.ToString());
+        PoolManager.Instance.Pop<EnemyController>();
+
         // 유저 인터페이스 셋팅.
         PoolManager.Instance.Create<UICharacter>(Constants.kBUNDLE.UICharacter.ToString());
         PoolManager.Instance.Pop<UICharacter>(Constants.kTAG.MainCanvas.ToString());

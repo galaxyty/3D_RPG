@@ -5,6 +5,18 @@ using BaseRPG_V1;
 
 public class EnemyController : BaseCharacter
 {
+    // 인덱스.
+    private int m_Index;
+
+    // 인덱스 프로퍼티.
+    public int Index
+    {
+        get
+        {
+            return m_Index;
+        }
+    }
+
     public override void Hit(int damage)
     {
         base.Hit(damage);

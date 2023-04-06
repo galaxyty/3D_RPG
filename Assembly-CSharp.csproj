@@ -38,6 +38,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\EnemyController.cs" />
      <Compile Include="Assets\Scripts\UI\UICustomEquitmentSlot.cs" />
+     <Compile Include="Assets\Scripts\UI\UICharacter.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Data\EquipmentListData.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Singleton\TableManager.cs" />
@@ -63,7 +64,8 @@
      <Compile Include="Assets\Frameworks\Scripts\Data\PorsionData.cs" />
      <Compile Include="Assets\Scripts\UI\UICustomEquitment.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Object\BaseCharacter.cs" />
-     <Compile Include="Assets\Scripts\UI\UICharacter.cs" />
+     <Compile Include="Assets\Frameworks\Scripts\Data\MosnterData.cs" />
+     <Compile Include="Assets\Frameworks\Scripts\Data\MosnterListData.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.41f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
