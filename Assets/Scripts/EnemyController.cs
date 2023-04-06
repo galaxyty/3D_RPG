@@ -17,6 +17,9 @@ public class EnemyController : BaseCharacter
         }
     }
 
+    // 스폰 객체.
+    public SpawnEnemy spawnEnemy = null;
+
     public override void Hit(int damage)
     {
         base.Hit(damage);
@@ -29,6 +32,8 @@ public class EnemyController : BaseCharacter
         base.Die();
         
         Debug.Log("사망");
+        spawnEnemy.StartSpawn();
+        spawnEnemy = null;
 
         PoolManager.Instance.Push(this);
     }

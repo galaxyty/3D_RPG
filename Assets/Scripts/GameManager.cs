@@ -9,10 +9,7 @@ public class GameManager : BaseSingleton<GameManager>
     {
         // 캐릭터 셋팅.
         PoolManager.Instance.Create<PlayerController>(Constants.kBUNDLE.Player.ToString());
-        PoolManager.Instance.Pop<PlayerController>();
-
-        PoolManager.Instance.Create<EnemyController>(Constants.kMONSTER.Enemy.ToString());
-        PoolManager.Instance.Pop<EnemyController>();
+        PoolManager.Instance.Pop<PlayerController>();        
 
         // 유저 인터페이스 셋팅.
         PoolManager.Instance.Create<UICharacter>(Constants.kBUNDLE.UICharacter.ToString());
