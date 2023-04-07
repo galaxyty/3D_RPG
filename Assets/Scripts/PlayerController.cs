@@ -95,6 +95,12 @@ public class PlayerController : BasePlayerCharacter
 
         m_Hp = 20;
         m_MaxHp = 40;
+        m_Level = 1;
+        m_Exp = 0;
+
+        var level = TableManager.Instance.GetLevelData().Find(foundData => foundData.LV == m_Level);
+
+        m_MaxExp = level.EXP;
     }
 
     public override void DisposeObject()

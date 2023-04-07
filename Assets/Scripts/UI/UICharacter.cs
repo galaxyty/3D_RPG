@@ -10,8 +10,13 @@ public class UICharacter : BaseObject
     [SerializeField]
     private Text m_TextOfLevel;
 
+    // 체력바.
     [SerializeField]
     private Slider m_SliderOfHP;
+
+    // 경험치바.
+    [SerializeField]
+    private Slider m_SliderOfExp;
 
     public override void Initialization()
     {
@@ -25,7 +30,7 @@ public class UICharacter : BaseObject
     }
 
     // 레벨 UI 업데이트.
-    private void UpdateLevelUI()
+    public void UpdateLevelUI()
     {
         var player = PoolManager.Instance.GetObject<PlayerController>();
 
@@ -34,7 +39,10 @@ public class UICharacter : BaseObject
             return;
         }
 
-        m_TextOfLevel.text = player.Level.ToString();        
+        m_TextOfLevel.text = player.Level.ToString();
+
+        m_SliderOfExp.maxValue = player.MaxExp;
+        m_SliderOfExp.value = player.Exp;
     }
 
     // 체력 UI 업데이트.

@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 769846952}
   - component: {fileID: 769846951}
   m_Layer: 0
-  m_Name: Spawn
+  m_Name: SpawnEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

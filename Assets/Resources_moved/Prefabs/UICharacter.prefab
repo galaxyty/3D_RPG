@@ -167,6 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TextOfLevel: {fileID: 3318730054795977215}
   m_SliderOfHP: {fileID: 3318730054986004468}
+  m_SliderOfExp: {fileID: 3318730055435033545}
 --- !u!1 &3318730054437954461
 GameObject:
   m_ObjectHideFlags: 0

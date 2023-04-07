@@ -15,10 +15,23 @@ public class EnemyController : BaseCharacter
         {
             return m_Index;
         }
+        set
+        {
+            m_Index = value;
+        }
     }
 
     // 스폰 객체.
     public SpawnEnemy spawnEnemy = null;
+
+    // 풀매니저로 돌아갈 시.
+    public override void DisposeObject()
+    {
+        base.DisposeObject();
+
+        spawnEnemy.StartSpawn();
+        spawnEnemy = null;        
+    }
 
     public override void Hit(int damage)
     {
@@ -27,13 +40,22 @@ public class EnemyController : BaseCharacter
         Debug.Log("남은 HP : " + m_Hp);
     }
 
+    // 체력 소모로 사망 시.
     public override void Die()
     {
         base.Die();
         
-        Debug.Log("사망");
-        spawnEnemy.StartSpawn();
-        spawnEnemy = null;
+        var monster = TableManager.Instance.GetMonsterData().Find(foundData => foundData.INDEX == m_Index);
+        var player = PoolManager.Instance.GetObject<PlayerController>();
+
+        if (monster == null || player == null)
+        {
+            return;
+        }
+
+        player.Exp += monster.EXP;
+
+        PoolManager.Instance.GetObject<UICharacter>().UpdateLevelUI();
 
         PoolManager.Instance.Push(this);
     }
