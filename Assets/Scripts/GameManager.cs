@@ -5,8 +5,9 @@ using BaseRPG_V1;
 
 public class GameManager : BaseSingleton<GameManager>
 {
-    private void Start() {
-        BundleDownloadManager.Instance.DownloadBundleAsync(Constants.kBUNDLE.Player.ToString(), GameStart);
+    private void Awake() 
+    {
+        GameStart();
     }
 
     // 게임 시작 함수.
