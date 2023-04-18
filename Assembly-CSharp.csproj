@@ -62,6 +62,7 @@
      <Compile Include="Assets\Frameworks\Scripts\Singleton\BundleManager.cs" />
      <Compile Include="Assets\Frameworks\Scripts\UI\UIEquitmentSlot.cs" />
      <Compile Include="Assets\Frameworks\Scripts\UI\UIEquitment.cs" />
+     <Compile Include="Assets\Frameworks\Scripts\Singleton\BundleDownloadManager.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Data\MosnterData.cs" />
      <Compile Include="Assets\Scripts\Spawn\SpawnEnemy.cs" />
      <Compile Include="Assets\Frameworks\Scripts\UI\UIInventorySlot.cs" />
@@ -70,7 +71,7 @@
      <Compile Include="Assets\Scripts\UI\UICustomEquitment.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Data\MosnterListData.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Object\BaseCharacter.cs" />
-     <Compile Include="Assets\Frameworks\Scripts\Singleton\BundleDownloadManager.cs" />
+     <Compile Include="Assets\Scripts\Initialization.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.41f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
