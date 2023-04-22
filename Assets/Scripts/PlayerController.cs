@@ -114,6 +114,7 @@ public class PlayerController : BasePlayerCharacter
     // 사망 이벤트 정의.
     public override void Die()
     {
+        Debug.Log("사망");
         base.Die();
     }
 
