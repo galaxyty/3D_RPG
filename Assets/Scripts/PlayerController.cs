@@ -96,7 +96,7 @@ public class PlayerController : BasePlayerCharacter
         PoolManager.Instance.Create<UICustomInventory>(Constants.kBUNDLE.UICustomInventory.ToString());
         PoolManager.Instance.Create<UICustomEquitment>(Constants.kBUNDLE.UICustomEquitment.ToString());
 
-        m_Hp = 20;
+        m_Hp = 40;
         m_MaxHp = 40;
         m_Level = 1;
         m_Exp = 0;
@@ -169,6 +169,12 @@ public class PlayerController : BasePlayerCharacter
 
         // 레벨업 후 목표경험치 재설정.
         m_MaxExp = data.EXP;
+    }
+
+    // 레벨업 함수.
+    public override void LevelUP()
+    {
+        base.LevelUP();
     }
 
     // 피격 시 (공격 받을 시).
