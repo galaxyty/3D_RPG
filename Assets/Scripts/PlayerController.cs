@@ -18,6 +18,9 @@ public class PlayerController : BasePlayerCharacter
     // 공격중인가?.
     private bool m_Attack = false;
 
+    // 레벨 데이터.
+    private List<LevelData> levelData = new List<LevelData>();
+
     private void Update() 
     {
         ThreeView();
@@ -98,9 +101,9 @@ public class PlayerController : BasePlayerCharacter
         m_Level = 1;
         m_Exp = 0;
 
-        var level = TableManager.Instance.GetLevelData().Find(foundData => foundData.LV == m_Level);
+        levelData = TableManager.Instance.GetLevelData();
 
-        m_MaxExp = level.EXP;
+        m_MaxExp = levelData.Find(foundData => foundData.LV == m_Level).EXP;
     }
 
     public override void DisposeObject()
@@ -136,6 +139,36 @@ public class PlayerController : BasePlayerCharacter
             default:
                 break;
         }
+    }
+
+    // 경험치 획득 함수.
+    public override void SetEXP(int exp)
+    {
+        // null 체크.
+        if (levelData == null)
+        {
+            return;
+        }
+
+        // 만렙이면 함수 종료.
+        if (levelData[levelData.Count - 1].LV == m_Level)
+        {
+            return;
+        }
+
+        base.SetEXP(exp);
+        
+        // 해당 레벨에 맞는 데이터 가져온다.
+        var data = levelData.Find(foundData => foundData.LV == m_Level);
+
+        // null 체크.
+        if (data == null)
+        {
+            return;
+        }        
+
+        // 레벨업 후 목표경험치 재설정.
+        m_MaxExp = data.EXP;
     }
 
     // 피격 시 (공격 받을 시).

@@ -53,7 +53,7 @@ public class EnemyController : BaseCharacter
             return;
         }
 
-        player.Exp += monster.EXP;
+        player.SetEXP(monster.EXP);
 
         PoolManager.Instance.GetObject<UICharacter>().UpdateLevelUI();
 
