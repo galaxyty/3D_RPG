@@ -96,6 +96,9 @@ public class PlayerController : BasePlayerCharacter
         PoolManager.Instance.Create<UICustomInventory>(Constants.kBUNDLE.UICustomInventory.ToString());
         PoolManager.Instance.Create<UICustomEquitment>(Constants.kBUNDLE.UICustomEquitment.ToString());
 
+        // 레벨업 이펙트 셋팅.
+        PoolManager.Instance.Create<EfLevelUp>(Constants.kBUNDLE.EfLevelUp.ToString());
+
         m_Hp = 40;
         m_MaxHp = 40;
         m_Level = 1;
@@ -176,6 +179,10 @@ public class PlayerController : BasePlayerCharacter
     public override void LevelUP()
     {
         base.LevelUP();
+
+        // 이펙트 활성화.
+        var obj = PoolManager.Instance.Pop<EfLevelUp>(transform);
+        obj.Count();
     }
 
     // 피격 시 (공격 받을 시).
