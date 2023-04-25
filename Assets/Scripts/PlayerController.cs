@@ -29,40 +29,30 @@ public class PlayerController : BasePlayerCharacter
         // 인벤토리 오픈.
         if (Input.GetKeyDown(KeyCode.I))
         {
-            if (PoolManager.Instance.GetObject<UICustomInventory>() == null)
-            {
-                // 아이템 랜덤 생성.
-                m_Inventory.Add(TableManager.Instance.GetItemData()[Random.Range(0, TableManager.Instance.GetItemData().Count)]);
-                
-                var obj = PoolManager.Instance.Pop<UICustomInventory>(Constants.kTAG.MainCanvas.ToString());
-                obj.UpdateUI(m_Inventory);
-            }
-        }
+            var obj = PopupManager.Instance.Open<UICustomInventory>(Constants.kTAG.MainCanvas.ToString());
 
-        // 인벤토리 닫기.
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (PoolManager.Instance.GetObject<UICustomInventory>() != null)
+            if (obj == null)
             {
-                PoolManager.Instance.Push(PoolManager.Instance.GetObject<UICustomInventory>());
                 return;
             }
 
-            if (PoolManager.Instance.GetObject<UICustomEquitment>() != null)
-            {
-                PoolManager.Instance.Push(PoolManager.Instance.GetObject<UICustomEquitment>());
-                return;
-            }
+            // 아이템 랜덤 생성.
+            m_Inventory.Add(TableManager.Instance.GetItemData()[Random.Range(0, TableManager.Instance.GetItemData().Count)]);
+
+            obj.UpdateUI(m_Inventory);
         }
 
         // 장비창.
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (PoolManager.Instance.GetObject<UICustomEquitment>() == null)
+            var obj = PopupManager.Instance.Open<UICustomEquitment>(Constants.kTAG.MainCanvas.ToString());
+
+            if (obj == null)
             {
-                var obj = PoolManager.Instance.Pop<UICustomEquitment>(Constants.kTAG.MainCanvas.ToString());
-                obj.UpdateUI();
+                return;
             }
+
+            obj.UpdateUI();
         }
     }
 
