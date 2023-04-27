@@ -54,10 +54,18 @@ public class PlayerController : BasePlayerCharacter
 
             obj.UpdateUI();
         }
+
+        LeftClick();
     }
 
     private void FixedUpdate() 
     {
+        JoystickMove(m_Joystick.Horizontal, m_Joystick.Vertical, () =>
+        {
+            // 움직이는 애니메이션 재생을 위해 타입 변경.
+            m_Move = kMOVE.Forward;
+        });        
+        
         Move();
     }
 
@@ -73,27 +81,13 @@ public class PlayerController : BasePlayerCharacter
 
     public override void Move()
     {
-        base.Move();        
+        base.Move();
 
-        LeftClick();
-
+        // 애니메이션 재생.
         m_Animator.SetInteger("Movement", (int)m_Move);
+
+        // 애니메이션 원래대로 돌아옴.
         m_Move = kMOVE.None;
-
-        float x = m_Joystick.Horizontal;
-        float z = m_Joystick.Vertical;
-
-        Vector3 moveVec = new Vector3(x, 0, z) * m_Speed * Time.deltaTime;
-        m_Rigidbody.MovePosition(m_Rigidbody.position + moveVec);
-
-        if (moveVec.sqrMagnitude == 0)
-        {
-            return;
-        }
-
-        Quaternion dirQuqt = Quaternion.LookRotation(moveVec);
-        Quaternion moveQuqt = Quaternion.Slerp(m_Rigidbody.rotation, dirQuqt, 0.3f);
-        m_Rigidbody.MoveRotation(moveQuqt);
     }
 
     public override void Initialization()
