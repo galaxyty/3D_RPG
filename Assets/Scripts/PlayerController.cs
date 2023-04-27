@@ -21,11 +21,11 @@ public class PlayerController : BasePlayerCharacter
     // 레벨 데이터.
     private List<LevelData> levelData = new List<LevelData>();
 
+    // 조이스틱.
+    private VariableJoystick m_Joystick = null;
+
     private void Update() 
     {
-        ThreeView();
-        Move();        
-
         // 인벤토리 오픈.
         if (Input.GetKeyDown(KeyCode.I))
         {
@@ -56,6 +56,11 @@ public class PlayerController : BasePlayerCharacter
         }
     }
 
+    private void FixedUpdate() 
+    {
+        Move();
+    }
+
     // 좌클릭.
     public override void OnLeftClick()
     {
@@ -68,12 +73,27 @@ public class PlayerController : BasePlayerCharacter
 
     public override void Move()
     {
-        base.Move();
+        base.Move();        
 
         LeftClick();
 
         m_Animator.SetInteger("Movement", (int)m_Move);
         m_Move = kMOVE.None;
+
+        float x = m_Joystick.Horizontal;
+        float z = m_Joystick.Vertical;
+
+        Vector3 moveVec = new Vector3(x, 0, z) * m_Speed * Time.deltaTime;
+        m_Rigidbody.MovePosition(m_Rigidbody.position + moveVec);
+
+        if (moveVec.sqrMagnitude == 0)
+        {
+            return;
+        }
+
+        Quaternion dirQuqt = Quaternion.LookRotation(moveVec);
+        Quaternion moveQuqt = Quaternion.Slerp(m_Rigidbody.rotation, dirQuqt, 0.3f);
+        m_Rigidbody.MoveRotation(moveQuqt);
     }
 
     public override void Initialization()
@@ -88,6 +108,14 @@ public class PlayerController : BasePlayerCharacter
 
         // 레벨업 이펙트 셋팅.
         PoolManager.Instance.Create<EfLevelUp>(Constants.kBUNDLE.EfLevelUp.ToString());
+
+        // 조이스틱.
+        PoolManager.Instance.Create<VariableJoystick>(Constants.kBUNDLE.Joystick.ToString());
+        m_Joystick = PoolManager.Instance.Pop<VariableJoystick>(Constants.kTAG.MainCanvas.ToString());
+
+        // 카메라.
+        PoolManager.Instance.Create<CameraController>(Constants.kBUNDLE.PlayerCamera.ToString());
+        PoolManager.Instance.Pop<CameraController>().SettingTarget(gameObject);
 
         m_Hp = 40;
         m_MaxHp = 40;
@@ -203,74 +231,6 @@ public class PlayerController : BasePlayerCharacter
     public override void W_KeyUp()
     {
         base.W_KeyUp();
-    }
-
-    // S 키 입력 시.
-    public override void S_Key()
-    {
-        base.S_Key();
-
-        m_Move = kMOVE.Back;
-    }
-
-    // S 키 취소.
-    public override void S_KeyUp()
-    {
-        base.S_KeyUp();
-    }
-
-    // A 키 입력 시.
-    public override void A_Key()
-    {
-        base.A_Key();
-
-        // 대각선 왼쪽.
-        if (m_Move == kMOVE.Forward)
-        {
-            m_Move = kMOVE.ForwardLeft;
-            return;
-        }
-
-        if (m_Move == kMOVE.Back)
-        {
-            m_Move = kMOVE.BackLeft;
-            return;
-        }
-        
-        m_Move = kMOVE.Left;
-    }
-
-    // A 키 취소.
-    public override void A_KeyUp()
-    {
-        base.A_KeyUp();
-    }
-
-    // D 키 입력 시.
-    public override void D_Key()
-    {
-        base.D_Key();
-
-        // 대각선 오른쪽.
-        if (m_Move == kMOVE.Forward)
-        {
-            m_Move = kMOVE.ForwardRight;
-            return;
-        }
-
-        if (m_Move == kMOVE.Back)
-        {
-            m_Move = kMOVE.BackRight;
-            return;
-        }
-
-        m_Move = kMOVE.Right;
-    }
-
-    // D 키 취소.
-    public override void D_KeyUp()
-    {
-        base.D_KeyUp();
     }
 
     // 공격 코루틴.
