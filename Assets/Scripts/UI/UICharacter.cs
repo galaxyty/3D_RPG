@@ -18,8 +18,39 @@ public class UICharacter : BaseObject
     [SerializeField]
     private Slider m_SliderOfExp;
 
+    // 게이지바 배경.
+    [SerializeField]
+    private Image m_ImageOfInfo;
+
+    // 레벨 배경.
+    [SerializeField]
+    private Image m_ImageOfLevelBG;
+    
+    // HP 외각선.
+    [SerializeField]
+    private Image m_ImageOfHPFrameBG;
+
+    // HP 배경.
+    [SerializeField]
+    private Image m_ImageOfHPBG;
+
+    // 경험치 외각선.
+    [SerializeField]
+    private Image m_ImageOfEXPFrameBG;
+
+    // 경험치 배경.
+    [SerializeField]
+    private Image m_ImageOfEXPBG;
+
     public override void Initialization()
     {
+        m_ImageOfInfo.sprite = BundleManager.Instance.LoadToSprite(Constants.kBUNDLE.UIInformation.ToString());
+        m_ImageOfLevelBG.sprite = BundleManager.Instance.LoadToSprite(Constants.kBUNDLE.UILevel.ToString());
+        m_ImageOfHPFrameBG.sprite = BundleManager.Instance.LoadToSprite(Constants.kBUNDLE.UIHPFrame.ToString());
+        m_ImageOfHPBG.sprite = BundleManager.Instance.LoadToSprite(Constants.kBUNDLE.UIHP.ToString());
+        m_ImageOfEXPFrameBG.sprite = BundleManager.Instance.LoadToSprite(Constants.kBUNDLE.UIHPFrame.ToString());
+        m_ImageOfEXPBG.sprite = BundleManager.Instance.LoadToSprite(Constants.kBUNDLE.UIHP.ToString());
+
         UpdateLevelUI();
         UpdateHpUI();
     }

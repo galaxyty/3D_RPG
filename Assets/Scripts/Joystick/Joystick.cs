@@ -1,11 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using BaseRPG_V1;
 
 public class Joystick : BaseObject, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
+    [SerializeField]
+    private Image m_ImageOfRadius;
+
+    [SerializeField]
+    private Image m_ImageOfHandle;
+
     public float Horizontal { get { return (snapX) ? SnapFloat(input.x, AxisOptions.Horizontal) : input.x; } }
     public float Vertical { get { return (snapY) ? SnapFloat(input.y, AxisOptions.Vertical) : input.y; } }
     public Vector2 Direction { get { return new Vector2(Horizontal, Vertical); } }
@@ -43,6 +50,8 @@ public class Joystick : BaseObject, IPointerDownHandler, IDragHandler, IPointerU
 
     public override void Initialization()
     {
+        m_ImageOfRadius.sprite = BundleManager.Instance.LoadToSprite(Constants.kBUNDLE.UIRadius.ToString());
+        m_ImageOfHandle.sprite = BundleManager.Instance.LoadToSprite(Constants.kBUNDLE.UIHandle.ToString());
     }
 
     public override void DisposeObject()
