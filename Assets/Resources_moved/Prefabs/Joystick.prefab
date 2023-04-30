@@ -89,15 +89,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42844a4fccbd54746b90cade4ff70f73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ImageOfRadius: {fileID: 3881087803815115470}
+  m_ImageOfHandle: {fileID: 3881087804030458057}
   handleRange: 1
   deadZone: 0
   axisOptions: 0
-  snapX: 0
-  snapY: 0
+  snapX: 1
+  snapY: 1
   background: {fileID: 3881087803815115471}
   handle: {fileID: 3881087804030458062}
-  m_ImageOfRadius: {fileID: 3881087803815115470}
-  m_ImageOfHandle: {fileID: 3881087804030458057}
   moveThreshold: 1
   joystickType: 0
 --- !u!1 &3881087803815115468
