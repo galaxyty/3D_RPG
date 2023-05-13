@@ -40,6 +40,10 @@ public class PlayerController : BasePlayerCharacter
             m_Inventory.Add(TableManager.Instance.GetItemData()[Random.Range(0, TableManager.Instance.GetItemData().Count)]);
 
             obj.UpdateUI(m_Inventory);
+
+            // 테스트옹 파이어볼 발사.
+            var test = PoolManager.Instance.Pop<FireBall>(transform);
+            test.transform.SetParent(null);
         }
 
         // 장비창.
@@ -110,6 +114,8 @@ public class PlayerController : BasePlayerCharacter
         // 카메라.
         PoolManager.Instance.Create<CameraController>(Constants.kBUNDLE.PlayerCamera.ToString());
         PoolManager.Instance.Pop<CameraController>().SettingTarget(gameObject);
+
+        PoolManager.Instance.Create<FireBall>(Constants.kBUNDLE.EfFireBall.ToString());
 
         m_Hp = 40;
         m_MaxHp = 40;
