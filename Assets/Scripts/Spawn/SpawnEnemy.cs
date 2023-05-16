@@ -16,7 +16,7 @@ public class SpawnEnemy : BaseSpawn
     {
         var obj = PoolManager.Instance.Pop<EnemyController>(transform);
         obj.spawnEnemy = this;
-        obj.Index = TableManager.Instance.GetMonsterData().Find(foundData => foundData.INDEX == 1).INDEX;
+        obj.Index = TableManager.Instance.GetMonsterData().Find(foundData => foundData.INDEX == m_SpawnIndex).INDEX;
         m_currentCount++;
     }
 }

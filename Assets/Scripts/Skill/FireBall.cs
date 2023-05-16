@@ -5,5 +5,8 @@ using BaseRPG_V1;
 
 public class FireBall : BaseSkill
 {
-    
+    public override void OnSkill()
+    {
+        Debug.Log("asdasd");
+    }
 }

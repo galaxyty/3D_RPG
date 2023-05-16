@@ -74,7 +74,14 @@ public class EnemyController : BaseCharacter
             if (player == null)
                 return;
             
-            damage = player.AttackPower;
+            damage = player.AttackPower;            
+        }
+
+        // 스킬 맞을 시.
+        var skill = other.GetComponent<BaseSkill>();
+        if (skill != null)
+        {
+            skill.OnSkill();
         }
 
         Hit(damage);
