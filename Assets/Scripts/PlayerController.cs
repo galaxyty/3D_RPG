@@ -42,8 +42,7 @@ public class PlayerController : BasePlayerCharacter
             obj.UpdateUI(m_Inventory);
 
             // 테스트옹 파이어볼 발사.
-            var test = PoolManager.Instance.Pop<FireBall>(transform);
-            test.transform.SetParent(null);
+            SkillManager.Instance.Skill<FireSlash>();
         }
 
         // 장비창.
@@ -75,6 +74,11 @@ public class PlayerController : BasePlayerCharacter
 
     // 좌클릭.
     public override void OnLeftClick()
+    {
+    }
+
+    // 공격.
+    public void OnAttack()
     {
         if (m_Attack == true)
             return;
@@ -111,11 +115,13 @@ public class PlayerController : BasePlayerCharacter
         PoolManager.Instance.Create<VariableJoystick>(Constants.kBUNDLE.Joystick.ToString());
         m_Joystick = PoolManager.Instance.Pop<VariableJoystick>(Constants.kTAG.MainCanvas.ToString());
 
+        // 좌클릭 버튼.
+        PoolManager.Instance.Create<UIAttackButton>(Constants.kBUNDLE.UIAttackButton.ToString());
+        PoolManager.Instance.Pop<UIAttackButton>(Constants.kTAG.MainCanvas.ToString());
+
         // 카메라.
         PoolManager.Instance.Create<CameraController>(Constants.kBUNDLE.PlayerCamera.ToString());
         PoolManager.Instance.Pop<CameraController>().SettingTarget(gameObject);
-
-        PoolManager.Instance.Create<FireBall>(Constants.kBUNDLE.EfFireBall.ToString());
 
         m_Hp = 40;
         m_MaxHp = 40;

@@ -57,7 +57,7 @@
      <Compile Include="Assets\Scripts\Effect\csParticleMove.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Object\BaseSkill.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Constants.cs" />
-     <Compile Include="Assets\Scripts\Skill\FireBall.cs" />
+     <Compile Include="Assets\Scripts\Skill\FireSlash.cs" />
      <Compile Include="Assets\48 Particle Effect Pack\Script\csDestroyEffect.cs" />
      <Compile Include="Assets\48 Particle Effect Pack\Script\csParticleEffectPackLightControl.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Object\BaseObject.cs" />
@@ -83,6 +83,8 @@
      <Compile Include="Assets\Scripts\UI\UICustomEquitment.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Data\MosnterListData.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Object\BaseCharacter.cs" />
+     <Compile Include="Assets\Scripts\Singleton\SkillManager.cs" />
+     <Compile Include="Assets\Scripts\UI\UIAttackButton.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.41f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

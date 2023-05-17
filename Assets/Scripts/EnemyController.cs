@@ -44,20 +44,28 @@ public class EnemyController : BaseCharacter
     public override void Die()
     {
         base.Die();
-        
-        var monster = TableManager.Instance.GetMonsterData().Find(foundData => foundData.INDEX == m_Index);
+
         var player = PoolManager.Instance.GetObject<PlayerController>();
 
-        if (monster == null || player == null)
+        if (player == null)
         {
             return;
         }
 
-        player.SetEXP(monster.EXP);
+        player.SetEXP(m_Exp);
 
         PoolManager.Instance.GetObject<UICharacter>().UpdateLevelUI();
 
         PoolManager.Instance.Push(this);
+    }
+
+    // 능력치 셋팅.
+    public void SetStatus(MonsterData monster)
+    {
+        m_Index = monster.INDEX;
+        m_Hp = monster.HP;
+        m_MaxHp = monster.HP;
+        m_Exp = monster.EXP;
     }
 
     private void OnTriggerEnter(Collider other) 
@@ -81,7 +89,7 @@ public class EnemyController : BaseCharacter
         var skill = other.GetComponent<BaseSkill>();
         if (skill != null)
         {
-            skill.OnSkill();
+            skill.OnHit(ref damage);
         }
 
         Hit(damage);

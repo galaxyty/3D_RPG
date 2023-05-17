@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -1328292907726495048}
   - component: {fileID: 428638186119652266}
   m_Layer: 0
-  m_Name: EfFireBall
+  m_Name: EfFireSlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d497e14c8a38f49ac502a303de982d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.01
+  speed: 0
 --- !u!114 &-1328292907726495048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +63,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Attack: 5
   m_CoolTime: 3
+  m_SkillCount: 1
+  m_PsFlash: {fileID: 19800004}
+  m_PsSmoke: {fileID: 19800002}
 --- !u!135 &428638186119652266
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -14,9 +14,19 @@ public class SpawnEnemy : BaseSpawn
     // 일정시간마다 크리에이트시킨 몬스터 필드에 생성.
     public override void SpawnPop()
     {
+        var monster = TableManager.Instance.GetMonsterData().Find(foundData => foundData.INDEX == m_SpawnIndex);
+
+        if (monster == null)
+        {
+            return;
+        }
+
         var obj = PoolManager.Instance.Pop<EnemyController>(transform);
         obj.spawnEnemy = this;
-        obj.Index = TableManager.Instance.GetMonsterData().Find(foundData => foundData.INDEX == m_SpawnIndex).INDEX;
+
+        // 능력치 셋팅.
+        obj.SetStatus(monster);
+
         m_currentCount++;
     }
 }
