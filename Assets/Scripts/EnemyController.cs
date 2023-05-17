@@ -66,7 +66,7 @@ public class EnemyController : BaseCharacter
         int damage = 0;
 
         // 플레이어한테 피격당할 시.
-        if (other.gameObject.tag == Constants.kTAG.Weapon.ToString())
+        if (other.gameObject.CompareTag(Constants.kTAG.Weapon.ToString()))
         {
             var player = other.transform.root.GetComponent<PlayerController>();
 
