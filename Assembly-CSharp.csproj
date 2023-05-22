@@ -87,6 +87,7 @@
      <Compile Include="Assets\Frameworks\Scripts\Object\BaseCharacter.cs" />
      <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-app-unity\maven-metadata.xml" />
      <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-analytics-unity\maven-metadata.xml" />
+     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-auth-unity\maven-metadata.xml" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.41f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -303,11 +304,14 @@
     <Reference Include="UnityEditor.UnityConnectModule">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.41f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="Firebase.Analytics">
-        <HintPath>C:\Users\User\Desktop\UnityProject\3D_RPG\Assets\Firebase\Plugins\Firebase.Analytics.dll</HintPath>
+    <Reference Include="Firebase.App">
+        <HintPath>C:\Users\User\Desktop\UnityProject\3D_RPG\Assets\Firebase\Plugins\Firebase.App.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.TaskExtension">
         <HintPath>C:\Users\User\Desktop\UnityProject\3D_RPG\Assets\Firebase\Plugins\Firebase.TaskExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Analytics">
+        <HintPath>C:\Users\User\Desktop\UnityProject\3D_RPG\Assets\Firebase\Plugins\Firebase.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="Google.MiniJson">
         <HintPath>C:\Users\User\Desktop\UnityProject\3D_RPG\Assets\Firebase\Plugins\Google.MiniJson.dll</HintPath>
@@ -315,8 +319,8 @@
     <Reference Include="Firebase.Platform">
         <HintPath>C:\Users\User\Desktop\UnityProject\3D_RPG\Assets\Firebase\Plugins\Firebase.Platform.dll</HintPath>
     </Reference>
-    <Reference Include="Firebase.App">
-        <HintPath>C:\Users\User\Desktop\UnityProject\3D_RPG\Assets\Firebase\Plugins\Firebase.App.dll</HintPath>
+    <Reference Include="Firebase.Auth">
+        <HintPath>C:\Users\User\Desktop\UnityProject\3D_RPG\Assets\Firebase\Plugins\Firebase.Auth.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.41f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
