@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "419207610105",
+    "project_id": "pato-c8c19",
+    "storage_bucket": "pato-c8c19.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:419207610105:android:45430a538194a63de92c28",
+        "android_client_info": {
+          "package_name": "com.pato.Slash"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "419207610105-r0mep5jr5cr5mcct9k79ef99cec898dq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFR3Hc2jWny8G-ilHoBTOlU9xhNE2YUcs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "419207610105-r0mep5jr5cr5mcct9k79ef99cec898dq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
