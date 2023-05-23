@@ -44,7 +44,7 @@ public class Initialization : MonoBehaviour
     private void BundleAlready()
     {
         m_ObjectOfPanel.SetActive(false);
-        GameManager.Instance.GameStart();
+        GameManager.Instance.GameStart();        
     }
 
     // 번들 다운로드하는 버튼.

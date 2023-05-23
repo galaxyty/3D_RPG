@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\Effect\csParticleMove.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Object\BaseSkill.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Constants.cs" />
+     <Compile Include="Assets\Scripts\Singleton\FirebaseManager.cs" />
      <Compile Include="Assets\Scripts\Skill\FireSlash.cs" />
      <Compile Include="Assets\48 Particle Effect Pack\Script\csDestroyEffect.cs" />
      <Compile Include="Assets\48 Particle Effect Pack\Script\csParticleEffectPackLightControl.cs" />
@@ -308,6 +309,9 @@
     <Reference Include="Firebase.App">
         <HintPath>C:\Users\User\Desktop\UnityProject\3D_RPG\Assets\Firebase\Plugins\Firebase.App.dll</HintPath>
     </Reference>
+    <Reference Include="Firebase.Database">
+        <HintPath>C:\Users\User\Desktop\UnityProject\3D_RPG\Assets\Firebase\Plugins\Firebase.Database.dll</HintPath>
+    </Reference>
     <Reference Include="Firebase.TaskExtension">
         <HintPath>C:\Users\User\Desktop\UnityProject\3D_RPG\Assets\Firebase\Plugins\Firebase.TaskExtension.dll</HintPath>
     </Reference>
@@ -322,9 +326,6 @@
     </Reference>
     <Reference Include="Firebase.Auth">
         <HintPath>C:\Users\User\Desktop\UnityProject\3D_RPG\Assets\Firebase\Plugins\Firebase.Auth.dll</HintPath>
-    </Reference>
-    <Reference Include="Firebase.Database">
-        <HintPath>C:\Users\User\Desktop\UnityProject\3D_RPG\Assets\Firebase\Plugins\Firebase.Database.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.41f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
