@@ -86,6 +86,7 @@
      <Compile Include="Assets\Scripts\UI\UICustomEquitment.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Data\MosnterListData.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Object\BaseCharacter.cs" />
+     <Compile Include="Assets\Scripts\Data\UserData.cs" />
      <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-app-unity\maven-metadata.xml" />
      <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-analytics-unity\maven-metadata.xml" />
      <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-auth-unity\maven-metadata.xml" />

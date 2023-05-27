@@ -13,7 +13,7 @@ public class PlayerController : BasePlayerCharacter
 
     // 공격용 메쉬콜라이더.
     [SerializeField]
-    private MeshCollider m_Mesh;    
+    private MeshCollider m_Mesh;
 
     // 공격중인가?.
     private bool m_Attack = false;
@@ -43,6 +43,8 @@ public class PlayerController : BasePlayerCharacter
 
             // 테스트옹 파이어볼 발사.
             SkillManager.Instance.Skill<FireSlash>();
+
+            FirebaseManager.Instance.ParseToUserData();
         }
 
         // 장비창.
