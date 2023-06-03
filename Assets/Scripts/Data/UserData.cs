@@ -7,4 +7,7 @@ public class UserData
 {
     // 인게임 돈.
     public int MONEY;
+
+    // 아이템.
+    public List<ItemData> ITEM = new List<ItemData>();
 }
