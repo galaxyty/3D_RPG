@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using BaseRPG_V1;
 
 public class Initialization : MonoBehaviour
@@ -13,9 +14,8 @@ public class Initialization : MonoBehaviour
     [SerializeField]
     private GameObject m_ObjectOfBG;
 
-    // 번들 다운로드중인 텍스트.
     [SerializeField]
-    private GameObject m_ObjectOfText;
+    private Slider m_SliderOfBundle;
 
     // 게임 실행 시 최초 실행.
     private void Awake()
@@ -29,14 +29,14 @@ public class Initialization : MonoBehaviour
     {
         m_ObjectOfPanel.SetActive(true);
         m_ObjectOfBG.SetActive(true);
-        m_ObjectOfText.SetActive(false);
+        m_SliderOfBundle.gameObject.SetActive(false);
     }
 
     // 번들 다운로드 함수.
     private void BundleDownload()
     {
         m_ObjectOfBG.SetActive(false);
-        m_ObjectOfText.SetActive(true);
+        m_SliderOfBundle.gameObject.SetActive(true);
         BundleDownloadManager.Instance.DownloadBundleAsync(Constants.kBUNDLE.Player.ToString(), BundleAlready);
     }
     
@@ -51,5 +51,10 @@ public class Initialization : MonoBehaviour
     public void OnTouchOK()
     {
         BundleDownload();
+    }
+
+    private void Update() 
+    {
+        m_SliderOfBundle.value = BundleDownloadManager.Instance.Percent;
     }
 }
