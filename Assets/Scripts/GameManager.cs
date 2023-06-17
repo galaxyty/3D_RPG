@@ -8,10 +8,7 @@ public class GameManager : BaseSingleton<GameManager>
     private void Start()
     {
         // 필드 생성.
-        FieldStart();
-
-        // 파베 초기화.
-        FirebaseManager.Instance.Initialization();
+        FieldStart();        
     }
 
     // GameManager 싱글톤 생성을 위한 함수. (Start 함수 실행을 위해 만들어둠).
@@ -21,20 +18,13 @@ public class GameManager : BaseSingleton<GameManager>
 
     // 필드에 캐릭터 생성.
     private void FieldStart()
-    {
-        // 스킬매니저 셋팅.
-        SkillManager.Instance.Initialization();
-        
-        // 유저 생성.
-        PoolManager.Instance.Create<PlayerController>(Constants.kBUNDLE.Player.ToString());        
-        PoolManager.Instance.Pop<PlayerController>();
+    {     
+        // 메인 메뉴 버튼 생성.
+        PoolManager.Instance.Create<UIMainMenuButton>(Constants.kBUNDLE.UIMainMenuButton.ToString());        
+        PoolManager.Instance.Pop<UIMainMenuButton>(Constants.kTAG.MainCanvas.ToString());
 
-        // 몬스터 스폰 생성.
-        PoolManager.Instance.Create<SpawnEnemy>(Constants.kBUNDLE.SpawnEnemy.ToString());
-        PoolManager.Instance.Pop<SpawnEnemy>();
-
-        // 유저 인터페이스 셋팅.
-        PoolManager.Instance.Create<UICharacter>(Constants.kBUNDLE.UICharacter.ToString());
-        PoolManager.Instance.Pop<UICharacter>(Constants.kTAG.MainCanvas.ToString());        
+        // 메인 화면 집 생성.
+        PoolManager.Instance.Create<MainMenu>(Constants.kBUNDLE.MainMenu.ToString());
+        PoolManager.Instance.Pop<MainMenu>();
     }
 }
