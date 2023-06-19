@@ -30,7 +30,11 @@ public class UIMainMenuButton : BaseObject
         PoolManager.Instance.Push(PoolManager.Instance.GetObject<MainMenu>());
 
         // 스킬매니저 셋팅.
-        SkillManager.Instance.Initialization();
+        SkillManager.Instance.Initialization();        
+
+        // 맵 생성.
+        PoolManager.Instance.Create<Map>(Constants.kBUNDLE.Map.ToString());
+        PoolManager.Instance.Pop<Map>();
 
         // 유저 생성.
         PoolManager.Instance.Create<PlayerController>(Constants.kBUNDLE.Player.ToString());
