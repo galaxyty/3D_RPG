@@ -21,6 +21,17 @@ public class UIMainEquitmentButton : BaseObject
 
     public void OnTouchEvent()
     {
-        Debug.Log("장비창 페이지");
+        // 아이템 랜덤 생성.
+        ItemData item = TableManager.Instance.GetItemData()[Random.Range(0, TableManager.Instance.GetItemData().Count)];
+        FirebaseManager.Instance.JsonToItemData(item);
+
+        var obj = PopupManager.Instance.Open<UICustomEquitment>(Constants.kTAG.MainCanvas.ToString());
+
+        if (obj == null)
+        {
+            return;
+        }
+
+        obj.UpdateUI();
     }
 }

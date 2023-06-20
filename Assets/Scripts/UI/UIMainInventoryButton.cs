@@ -21,6 +21,16 @@ public class UIMainInventoryButton : BaseObject
 
     public void OnTouchEvent()
     {
-        Debug.Log("인벤토리 페이지");
+        var obj = PopupManager.Instance.Open<UICustomInventory>(Constants.kTAG.MainCanvas.ToString());
+
+        if (obj == null)
+        {
+            return;
+        }
+
+        obj.UpdateUI(FirebaseManager.Instance.UserData.ITEM);
+
+        // 테스트옹 파이어볼 발사.
+        SkillManager.Instance.Skill<FireSlash>();
     }
 }

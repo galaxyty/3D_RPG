@@ -26,39 +26,6 @@ public class PlayerController : BasePlayerCharacter
 
     private void Update() 
     {
-        // 인벤토리 오픈.
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            var obj = PopupManager.Instance.Open<UICustomInventory>(Constants.kTAG.MainCanvas.ToString());
-
-            if (obj == null)
-            {
-                return;
-            }            
-
-            obj.UpdateUI(FirebaseManager.Instance.UserData.ITEM);
-
-            // 테스트옹 파이어볼 발사.
-            SkillManager.Instance.Skill<FireSlash>();            
-        }
-
-        // 장비창.
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            // 아이템 랜덤 생성.
-            ItemData item = TableManager.Instance.GetItemData()[Random.Range(0, TableManager.Instance.GetItemData().Count)];
-            FirebaseManager.Instance.JsonToItemData(item);
-            
-            var obj = PopupManager.Instance.Open<UICustomEquitment>(Constants.kTAG.MainCanvas.ToString());
-
-            if (obj == null)
-            {
-                return;
-            }
-
-            obj.UpdateUI();
-        }
-
         LeftClick();
     }
 
