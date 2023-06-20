@@ -116,9 +116,18 @@ public class PlayerController : BasePlayerCharacter
         PoolManager.Instance.Create<VariableJoystick>(Constants.kBUNDLE.Joystick.ToString());
         m_Joystick = PoolManager.Instance.Pop<VariableJoystick>(Constants.kTAG.MainCanvas.ToString());
 
-        // 좌클릭 버튼.
+        // 공격 버튼.
         PoolManager.Instance.Create<UIAttackButton>(Constants.kBUNDLE.UIAttackButton.ToString());
         PoolManager.Instance.Pop<UIAttackButton>(Constants.kTAG.MainCanvas.ToString());
+
+        PoolManager.Instance.Create<UIMainInventoryButton>(Constants.kBUNDLE.UIMainInventoryButton.ToString());
+        PoolManager.Instance.Pop<UIMainInventoryButton>(Constants.kTAG.MainCanvas.ToString());
+
+        PoolManager.Instance.Create<UIMainEquitmentButton>(Constants.kBUNDLE.UIMainEquitmentButton.ToString());
+        PoolManager.Instance.Pop<UIMainEquitmentButton>(Constants.kTAG.MainCanvas.ToString());
+
+        PoolManager.Instance.Create<UIMainSkillButton>(Constants.kBUNDLE.UIMainSkillButton.ToString());
+        PoolManager.Instance.Pop<UIMainSkillButton>(Constants.kTAG.MainCanvas.ToString());        
 
         // 카메라.
         PoolManager.Instance.Create<CameraController>(Constants.kBUNDLE.PlayerCamera.ToString());

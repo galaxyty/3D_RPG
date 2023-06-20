@@ -40,6 +40,7 @@
      <Compile Include="Assets\Scripts\Object\EnemyController.cs" />
      <Compile Include="Assets\Scripts\UI\UICustomEquitmentSlot.cs" />
      <Compile Include="Assets\Sample\48 Particle Effect Pack\Script\csMouseOrbit.cs" />
+     <Compile Include="Assets\Frameworks\Scripts\Singleton\BGMManager.cs" />
      <Compile Include="Assets\Scripts\UI\UICharacter.cs" />
      <Compile Include="Assets\Scripts\Joystick\VariableJoystick.cs" />
      <Compile Include="Assets\Scripts\UI\UIMainMenuButton.cs" />
@@ -85,12 +86,14 @@
      <Compile Include="Assets\Frameworks\Scripts\Data\PorsionListData.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Data\PorsionData.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Singleton\PopupManager.cs" />
+     <Compile Include="Assets\Scripts\Object\Map.cs" />
      <Compile Include="Assets\Scripts\Singleton\SkillManager.cs" />
      <Compile Include="Assets\Scripts\UI\UICustomEquitment.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Data\MosnterListData.cs" />
      <Compile Include="Assets\Frameworks\Scripts\Object\BaseCharacter.cs" />
-     <Compile Include="Assets\Scripts\Object\Map.cs" />
-     <Compile Include="Assets\Frameworks\Scripts\Singleton\BGMManager.cs" />
+     <Compile Include="Assets\Scripts\UI\UIMainSkillButton.cs" />
+     <Compile Include="Assets\Scripts\UI\UIMainEquitmentButton.cs" />
+     <Compile Include="Assets\Scripts\UI\UIMainInventoryButton.cs" />
      <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-app-unity\maven-metadata.xml" />
      <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-analytics-unity\maven-metadata.xml" />
      <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-auth-unity\maven-metadata.xml" />
