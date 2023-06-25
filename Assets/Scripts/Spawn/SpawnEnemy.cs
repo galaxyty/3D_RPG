@@ -8,7 +8,7 @@ public class SpawnEnemy : BaseSpawn
     // 스폰시킬 몬스터 풀매니저 크리에이트.
     public override void SpawnCreate()
     {
-        PoolManager.Instance.Create<EnemyController>(Constants.kMONSTER.Enemy.ToString());
+        PoolManager.Instance.Create<EnemyController>(Constants.kMONSTER.Enemy.ToString(), m_Count);
     }
 
     // 일정시간마다 크리에이트시킨 몬스터 필드에 생성.
