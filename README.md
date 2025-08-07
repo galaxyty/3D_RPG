@@ -3,7 +3,13 @@
 - 사용 엔진 : 유니티
 
 ## 작업 내용
+- 어드레서블 에셋을 활용하여 아마존 S3를 통해 에셋 관리
 ![Image](https://github.com/user-attachments/assets/eae8d1a9-081d-4cd1-b9f3-96e8968cb2ed)
+아마존 S3에서 에셋 올림
+
 ![Image](https://github.com/user-attachments/assets/f10a893f-1b24-4616-8e95-c8e4673794f7)
+아마존 S3에 Remote Path를 통해 다운로드 확인
+
 ![Image](https://github.com/user-attachments/assets/068372c1-887e-46cc-83ba-da8d23cf6521)
 ![Image](https://github.com/user-attachments/assets/52d7de91-5e1a-42f3-8baa-4d00272c212b)
+다운로드를 시도하면 비동기로 작동하여 로딩바가 나오고 다운로드가 완료되면 에셋을 메모리에 로드하여 사용
