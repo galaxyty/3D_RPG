@@ -5,6 +5,7 @@
 설명 : 게임이란 형태는 딱히 없고 어드레서블 사용, 리소스 로드, 간단한 조작정도만 있음
 
 ## 작업 내용
+- 유니티 에셋스토어에서 조이스틱 UI를 가져와 캐릭터 이동 구현
 - 어드레서블 에셋을 활용하여 아마존 S3를 통해 에셋 관리
 ![Image](https://github.com/user-attachments/assets/eae8d1a9-081d-4cd1-b9f3-96e8968cb2ed)
 <br><p align="center">아마존 S3에서 에셋 올림</p><br><br>
