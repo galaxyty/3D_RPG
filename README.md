@@ -12,4 +12,4 @@
 
 ![Image](https://github.com/user-attachments/assets/068372c1-887e-46cc-83ba-da8d23cf6521)
 ![Image](https://github.com/user-attachments/assets/52d7de91-5e1a-42f3-8baa-4d00272c212b)
-<br><p align="center">다운로드를 시도하면 비동기로 작동하여 로딩바가 나오고 다운로드가 완료되면 에셋을 메모리에 로드하여 사용</p><br><br>
+<br><p align="center">다운로드를 시도하면 비동기로 작동하여 로딩바가 나오고 다운로드가 완료되면 다운로드한 에셋 사용 가능</p><br><br>
